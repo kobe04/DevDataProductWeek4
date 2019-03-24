@@ -18,5 +18,5 @@ shinyServer(function(input, output) {
                                                 "versus Fertility, with linear regression line"))
         g <- g + theme_bw() + geom_smooth(method = "lm")
         g
-  })
+  }, width = 800)
 })
