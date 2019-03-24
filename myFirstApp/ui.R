@@ -21,11 +21,11 @@ shinyUI(fluidPage(
     # Show a plot of the chosen variable with regression line
     mainPanel(
         tabsetPanel(
-            tabPanel("Plot", plotOutput("plot1")),
+            tabPanel("Plot", plotOutput("plot1"),
+                     h3("K. van Splunter"),
+                     h4("24 March 2019")),
             tabPanel("Documentation", includeHTML("Documentation.html"))
-        ),
-        h3("K. van Splunter"),
-        h4("24 March 2019")
+        )
     )
   )
 ))
