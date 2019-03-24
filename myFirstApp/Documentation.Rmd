@@ -1,32 +1,32 @@
 ---
 title: "Documentation"
 author: "K. van Splunter"
-date: "24 maart 2019"
-output: 
-  html_document: 
-    keep_md: yes
+date: "24 March 2019"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Assignment
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This app is part of the Peer Assignment for the Coursera course *Developing Data Products*.
+The goal of the assignment is to create a simple app with *Shiny* and to create a corresponding pitch presentation.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## App
 
-```{r cars}
-summary(cars)
-```
+This app creates a plot with a linear regression line based on the dataset **swiss**, which is one of the default datasets in R. A short overview of the dataset can be found on [this][1] page.
+The full code for the app and the pitch presentation can be found [here][2].
+The webbased presentation can be [viewed][3].
 
-## Including Plots
+## What to do
 
-You can also embed plots, for example:
+As mentioned, the app creates a plot with a linear regression line. The outcome variable is *Fertility*. The predictor variable can be selected by the user. This is done in the dropdown-menu on the left side of the screen.
+After the variable of choice is selected, the user must hit the **Done** button for the plot to be shown.
+By default, the predictor variable is set to be the *Agriculture* variable.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+[1]: https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html "this"
+[2]: https://github.com/kobe04/DevDataProductWeek4 "here"
+[3]: https://kobe04.github.io/DevDataProductWeek4/Pitch.html "viewed"
