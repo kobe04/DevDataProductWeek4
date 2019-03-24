@@ -7,11 +7,7 @@ output:
     keep_md: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(ggplot2)
-data(swiss)
-```
+
 
 ## Introduction
 
@@ -28,7 +24,8 @@ The webbased application can be [viewed][3].
 
 The plot is constructed with the following code:
 
-```{r plot, echo = TRUE, eval = FALSE}
+
+```r
         g <- ggplot(swiss, aes(x = xvar, y = Fertility)) +
              geom_point(aes(colour = "red"), show.legend = FALSE)
         g <- g + labs(x = labelx,
@@ -43,14 +40,7 @@ The `xvar` is selected by the user. This is also used to set the Title and the l
 ## Initial Plot
 
 When the app is started, this is the initial plot.
-```{r init_plot}
-        g <- ggplot(swiss, aes(x = Agriculture, y = Fertility)) + geom_point(aes(colour = "red"),
-                                                                      show.legend = FALSE)
-        g <- g + labs(x = "Agriculture",
-                      title = "Agriculture versus Fertility, with linear regression line")
-        g <- g + theme_bw() + geom_smooth(method = "lm")
-        g
-```
+![](Pitch_files/figure-html/init_plot-1.png)<!-- -->
 
 
 
