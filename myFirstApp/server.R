@@ -1,17 +1,20 @@
 library(shiny)
+library(ggplot2)
 
-# Define server logic required to draw a histogram
+# Define server logic required to draw plot and regression line
 shinyServer(function(input, output) {
-   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
+    output$plot1 <- renderPlot({
+        listNames <- c("Agriculture", "Examination", "Education", "Catholic", "Infant.Mortality")
+        labelx <- which(varNames %in% input$predictor)
+        labelx <- listNames[labelx]
+        xvar <- swiss[,input$predictor]
+        
+        # draw the plot with the specified x-variable
+        g <- ggplot(swiss, aes(x = xvar, y = Fertility)) + geom_point(aes(colour = "red"),
+                                                                      show.legend = FALSE)
+        g <- g + labs(x = labelx, title = paste(labelx,
+                                                " versus Fertility, with linear regression line"))
+        g <- g + theme_bw() + geom_smooth(method = "lm")
+        g
   })
-  
 })

@@ -1,24 +1,28 @@
 library(shiny)
+data("swiss")
+varNames <- names(swiss[,-1])
 
-# Define UI for application that draws a histogram
+
+# Title
 shinyUI(fluidPage(
+  titlePanel("Prediction of Fertility"),
   
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins 
+  # Sidebar to select predictor variable 
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+       h3("Selection"),
+       selectInput("predictor",
+                   "Select the predictor variable:",
+                   selected = varNames[1],
+                   varNames),
+       submitButton("Done")
     ),
     
-    # Show a plot of the generated distribution
+    # Show a plot of the chosen variable with regression line
     mainPanel(
-       plotOutput("distPlot")
+       plotOutput("plot1"),
+       h4("K. van Splunter"),
+       h5("24 March 2019")
     )
   )
 ))
